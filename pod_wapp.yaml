@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-	name: app
+ name: app
 spec:
-	containers:
-		- name: wapp
-		  image: 311738118951.dkr.ecr.us-east-1.amazonaws.com/amehta63-wapp:v1.0
-		  env:
-			- name: DBHOST
-       			  value: "10.244.0.7"
-			- name: MYSQL_ROOT_PASSWORD
-			  value: pw
-			- name: DBUSER
-      			  value: root
-   			- name: DBPWD
-     			  value: pw
-		  ports:
-			- containerPort: 8080
+ containers:
+ - name: wapp
+ image: 311738118951.dkr.ecr.us-east-1.amazonaws.com/amehta63-wapp:v1.0
+ env:
+ - name: DBHOST
+   value: "10.244.0.7"
+ - name: MYSQL_ROOT_PASSWORD
+   value: pw
+ - name: DBUSER
+   value: root
+ - name: DBPWD
+   value: pw
+   ports:
+   - containerPort: 8080
 		
