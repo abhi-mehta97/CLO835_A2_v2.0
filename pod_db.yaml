@@ -5,9 +5,9 @@ metadata:
 spec:
  containers:
  - name: db
-   image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db:v1.0
+   image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db
  env:
  - name: MYSQL_ROOT_PASSWORD
    value: pw
-   ports:
-   - containerPort: 3306
+ ports:
+ - containerPort: 3306
