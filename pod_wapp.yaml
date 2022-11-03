@@ -6,7 +6,7 @@ metadata:
 spec:
  containers:
  - name: wapp
-   image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-wapp:v2.0
+   image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-wapp:v1.0
    env:
    - name: DBHOST
      value: "10.244.0.7"
