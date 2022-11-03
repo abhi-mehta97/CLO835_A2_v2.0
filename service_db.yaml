@@ -4,7 +4,7 @@ kind: Service
 
 metadata:
   name: db
-  namespace: nsdb
+  namespace: dbns
   labels:
     app: db
 
