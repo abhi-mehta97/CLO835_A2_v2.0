@@ -2,29 +2,28 @@ apiVersion: apps/v1
 kind: ReplicaSet
 
 metadata:
-	name: db-replicaset
-	namespace: dbns
-	labels:
-	  tier: development
-	  name: db
+  name: db-replicaset
+  namespace: dbns
+  labels:
+    tier: development
+    name: db
 
 spec:
-	replicas:3
-	selector:
-	  matchLabels:
-	    type: db
-	    app: db
-	template:
-	  metadata:
-            name: db
-            namespace: dbns
-          spec:
-            containers:
-            - name: db
-              image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db
-              ports:
-              - containerPort: 3306
-              env:
-              - name: MYSQL_ROOT_PASSWORD
-              value: pw
-	
+  replicas:3
+  selector:
+    matchLabels:
+      type: db
+      app: db
+   template:
+     metadata:
+       name: db
+       namespace: dbns
+    spec:
+     containers:
+     - name: db
+       image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db
+       ports:
+     - containerPort: 3306
+       env:
+       - name: MYSQL_ROOT_PASSWORD
+       value: pw
