@@ -9,6 +9,7 @@ spec:
    image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db:v1.0
    ports:
    - containerPort: 3306
+     protocol: TCP
    env:
    - name: MYSQL_ROOT_PASSWORD
      value: pw
