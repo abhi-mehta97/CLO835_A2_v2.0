@@ -6,7 +6,7 @@ metadata:
 spec:
  containers:
  - name: db
-   image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db
+   image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db:v1.0
    ports:
    - containerPort: 3306
    env:
