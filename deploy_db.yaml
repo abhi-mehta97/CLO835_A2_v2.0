@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploydb
+  namespace: dbns
+  labels:
+    app: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: db
+        image: '311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db:v2.0'
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value : pw
+        - name: DBPORT
+          value : "3306"
+        ports: 
+          - containerPort: 8080
+            protocol: TCP

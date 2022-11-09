@@ -5,33 +5,31 @@ metadata:
   name: wapp-replicaset
   namespace: wappns
   labels:
-    tier: development
-    name: wapp
+    app: employees
 spec:
-  replicas:3
+  replicas: 3
   selector:
     matchLabels:
-      type: web
-      app: wapp
+      app: employees
   template:
     metadata:
-      name: wapp
-      namespace: wappns
-   spec:
-     containers:
-     - name: wapp
-       image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-wapp:v2.0
-       env:
-       - name: DBHOST
-         value: "10.244.0.7"
-       - name: MYSQL_ROOT_PASSWORD
-         value: pw
-       - name: DBUSER
-         value: root
-       - name: DBPWD
-         value: pw
-       - name: DBPORT
-         value: "3306"
-       ports:
-       - containerPort: 8080
-	
+      labels:
+        app: employees
+    spec:
+      containers:
+      - name: wapp
+        image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-wapp:v2.0
+        env:
+        - name: DBHOST
+          value: "10.244.0.13"
+        - name: MYSQL_ROOT_PASSWORD
+          value: pw
+        - name: DBUSER
+          value: root
+        - name: DBPWD
+          value: pw
+        - name: DBPORT
+          value: "3306"
+        ports:
+        - containerPort: 8080
+          protocol: TCP

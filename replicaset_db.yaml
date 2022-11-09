@@ -7,23 +7,26 @@ metadata:
   labels:
     tier: development
     name: db
+    app: mysql
 
 spec:
-  replicas:3
+  replicas: 3
   selector:
     matchLabels:
-      type: db
-      app: db
-   template:
-     metadata:
-       name: db
-       namespace: dbns
-    spec:
+      app: mysql
+  template:
+   metadata:
+     name: db
+     namespace: dbns
+     labels:
+       app: mysql
+   spec:
      containers:
      - name: db
-       image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db:v3.0
+       image: 311335618943.dkr.ecr.us-east-1.amazonaws.com/amehta63-db:v2.0
        ports:
-     - containerPort: 3306
+       - containerPort: 3306
+         protocol: TCP
        env:
        - name: MYSQL_ROOT_PASSWORD
-       value: pw
+         value: pw
